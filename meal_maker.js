@@ -4,11 +4,17 @@ const menu = {
    	mains: [],
     desserts: []
 	},
-  get appetizers() {},
+  get appetizers() {
+    return menu[_courses].appetizers
+  },
   set appetizers(appetizerIn) {},
-  get mains() {},
+  get mains() {
+    return menu[_courses].mains
+  },
   set mains(mainIn) {},
-  get desserts() {},
+  get desserts() {
+    return menu[_courses].desserts
+  },
   set desserts(dessertIn) {},
   get courses() {
     return {
@@ -28,8 +34,8 @@ const menu = {
   },
   generateRandomMeal() {
     const appetizer = this.getRandomDishFromCourse('appetizers');
-    const main = this.getRandomDishFromCourse('main');
-    const dessert = this.getRandomDishFromCourse('dessert');
+    const main = this.getRandomDishFromCourse('mains');
+    const dessert = this.getRandomDishFromCourse('desserts');
     const totalPrice = appetizer.price + main.price + dessert.price;
     return `Your meal is ${appetizer.name}, ${main.name}, and ${dessert.name}. The total price is ${totalPrice}.`
   }
