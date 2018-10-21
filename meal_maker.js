@@ -2,20 +2,26 @@ const menu = {
   _courses: {
   	appetizers: [],
    	mains: [],
-    desserts: []
-	},
+    desserts: [],
   get appetizers() {
-    return menu[_courses].appetizers
+    return this._appetizers
   },
-  set appetizers(appetizerIn) {},
+  set appetizers(appetizerIn) {
+    this._appetizers = appetizersIn;
+  },
   get mains() {
-    return menu[_courses].mains
+    return this._mains
   },
-  set mains(mainIn) {},
+  set mains(mainIn) {
+    this._mains = mainsIn;
+  },
   get desserts() {
-    return menu[_courses].desserts
+    return this._desserts
   },
-  set desserts(dessertIn) {},
+  set desserts(dessertIn) {
+    this._desserts = dessertsIn;
+  }
+},
   get courses() {
     return {
       appetizers: this._courses.appetizers,
@@ -24,13 +30,16 @@ const menu = {
     }
   },
   addDishToCourse (courseName, dishName, dishPrice) {
-    const dish = {dishName, dishPrice};
-    this._courses[courseName].push(dish);
+    const dish = {
+      name: dishName,
+      price: dishPrice
+    };
+  this._courses[courseName].push(dish);
   },
   getRandomDishFromCourse (courseName) {
     const dishes = this._courses[courseName];
     const randomIndex = Math.floor(Math.random() * dishes.length);
-    return dishes.randomIndex;
+    return dishes[randomIndex];
   },
   generateRandomMeal() {
     const appetizer = this.getRandomDishFromCourse('appetizers');
@@ -38,7 +47,7 @@ const menu = {
     const dessert = this.getRandomDishFromCourse('desserts');
     const totalPrice = appetizer.price + main.price + dessert.price;
     return `Your meal is ${appetizer.name}, ${main.name}, and ${dessert.name}. The total price is ${totalPrice}.`
-  }
+  },
 };
 menu.addDishToCourse('appetizers', 'Won Ton Soup', 3.00);
 menu.addDishToCourse('appetizers', 'Potstickers', 4.50);
@@ -52,6 +61,6 @@ menu.addDishToCourse('desserts', 'Fried Ice Cream', 3.50);
 menu.addDishToCourse('desserts', 'Sweet Bun', 2.50);
 menu.addDishToCourse('desserts', 'Fruit Bowl', 3.00);
 
-const meal = menu.generateRandomMeal();
+let meal = menu.generateRandomMeal();
 
 console.log(meal);
