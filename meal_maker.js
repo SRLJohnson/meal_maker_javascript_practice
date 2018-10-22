@@ -7,19 +7,19 @@ const menu = {
   get myAppetizers() {
     return this.appetizers;
   },
-  set appetizers(appetizersIn) {
+  set myAppetizers(appetizersIn) {
     this.appetizers = appetizersIn;
   },
   get myMains() {
     return this.mains;
   },
-  set mains(mainsIn) {
+  set myMains(mainsIn) {
     this.mains = mainsIn;
   },
   get myDesserts() {
     return this.desserts;
   },
-  set desserts(dessertsIn) {
+  set myDesserts(dessertsIn) {
     this.desserts = dessertsIn;
   },
 },
@@ -37,7 +37,7 @@ const menu = {
       name: dishName,
       price: dishPrice,
     };
-console.log(courseName);
+
   this.courses[courseName].push(dish);
   },
 
