@@ -3,22 +3,23 @@ const menu = {
   	appetizers: [],
    	mains: [],
     desserts: [],
+
   get appetizers() {
-    return this._appetizers
+    return this._appetizers;
   },
-  set appetizers(appetizerIn) {
+  set appetizers(appetizersIn) {
     this._appetizers = appetizersIn;
   },
   get mains() {
-    return this._mains
+    return this._mains;
   },
-  set mains(mainIn) {
+  set mains(mainsIn) {
     this._mains = mainsIn;
   },
   get desserts() {
-    return this._desserts
+    return this._desserts;
   },
-  set desserts(dessertIn) {
+  set desserts(dessertsIn) {
     this._desserts = dessertsIn;
   }
 },
